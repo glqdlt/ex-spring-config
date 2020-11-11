@@ -1,7 +1,9 @@
 package com.glqdlt.ex.simpletestapp;
 
-import com.glqdlt.ex.annoationworks.AnnotationWorkInnerBean;
-import com.glqdlt.ex.annoationworks.EnableMyConfiguration;
+import com.glqdlt.ex.annoationworks.simple.AnnotationWorkInnerBean;
+import com.glqdlt.ex.annoationworks.attribute.AnnotationWorkInnerBeanAttribute;
+import com.glqdlt.ex.annoationworks.simple.EnableMyConfiguration;
+import com.glqdlt.ex.annoationworks.attribute.EnableMyConfigurationAttribute;
 import com.glqdlt.ex.autoconfiguration.MySImpleAutoConfigInnerBaen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @EnableMyConfiguration
+@EnableMyConfigurationAttribute(name = "hello")
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
@@ -19,6 +22,9 @@ public class Main implements CommandLineRunner {
 
     @Autowired
     private AnnotationWorkInnerBean annotationWorkInnerBean;
+
+    @Autowired
+    private AnnotationWorkInnerBeanAttribute annotationWorkInnerBeanName;
 
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -30,5 +36,6 @@ public class Main implements CommandLineRunner {
     public void run(String... args) throws Exception {
         logger.info(mySimpleBean.echo());
         logger.info(annotationWorkInnerBean.echo());
+        logger.info(annotationWorkInnerBeanName.echo());
     }
 }

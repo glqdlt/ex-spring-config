@@ -1,4 +1,4 @@
-package com.glqdlt.ex.annoationworks;
+package com.glqdlt.ex.annoationworks.simple;
 
 public class AnnotationWorkInnerBean {
     public String echo() {

@@ -1,4 +1,4 @@
-package com.glqdlt.ex.annoationworks;
+package com.glqdlt.ex.annoationworks.attribute;
 
 import org.springframework.context.annotation.Import;
 
@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Import(AnnotationsConfig.class)
-public @interface EnableMyConfiguration {
+@Import(AnnotationsConfigAttribute.class)
+public @interface EnableMyConfigurationAttribute {
+    String name() default "annotations";
 }
